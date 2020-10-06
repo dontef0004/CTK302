@@ -17,16 +17,15 @@ switch(state){
 case 0:
 background('red')
 text("shhhhhhhhhhh", 250, 250);
-if (vol >.01) {
-state = 0;
+if (vol > 0.10) {
+state = 1;
 }
-break ;
+break;
 
 case 1:
 print('words');
 background('green')
 text("QUIET DOWN!", 250, 250);
-
 break ;
 }
 
