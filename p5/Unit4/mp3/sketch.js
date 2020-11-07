@@ -2,7 +2,7 @@ var cars = [];
 var frogPos;
 var myState = 0;
 var timer = 0;
-var yoda, yodaRight, yodaLeft;
+var helmet, helmetRight, helmetLeft;
 var bird;
 var birds = [];
 var gok ;
@@ -23,9 +23,9 @@ function setup() {
   birds[0] = loadImage("assets/football.png");
   birds[1] = loadImage("assets/football.png");
   birds[2] = loadImage("assets/football.png");
-  yodaRight = loadImage("assets/helmetRight.png");
-  yodaLeft = loadImage("assets/helmetLeft.png");
-  yoda = yodaRight;
+  helmetRight = loadImage("assets/helmetRight.png");
+  helmetLeft = loadImage("assets/helmetLeft.png");
+  helmet = helmetRight;
 
   bird = loadImage("assets/football.png");
 
@@ -59,7 +59,7 @@ function draw() {
     case 0:
     background('#66FFFF');
      fill('black');
-     textFont(myFont);  // SETS the font
+     textFont(myFont);
      textSize(50);
       text("GO LONG!, \n Click to Play", 200, 250);
       song.play();
@@ -78,18 +78,18 @@ function draw() {
       break;
 
     case 2:
-      //background(200);
+
       image(lose, 400, 400, 400, 400);
-      textFont(myFont);  // SETS the font
+      textFont(myFont);
       textSize(50);
       text("NO GOOD", 300, 200);
       song.play();
       break;
 
     case 3:
-      //background(200);
+
       image(win, width/2, height/2);
-      textFont(myFont);  // SETS the font
+      textFont(myFont);
       textSize(100);
       text("TOUCHDOWN !", 300, 200);
         song.play();
@@ -204,7 +204,7 @@ function game() {
 
 
 
-  image(yoda, frogPos.x, frogPos.y, 100, 100);
+  image(helmet, frogPos.x, frogPos.y, 100, 100);
   //ellipse(frogPos.x, frogPos.y, 60, 60) ;
   checkForKeys();
 
