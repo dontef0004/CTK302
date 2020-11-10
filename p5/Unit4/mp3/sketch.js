@@ -13,7 +13,7 @@ let song ;
 
 function preload(){
   song = loadSound('assets/whistle.mp3');
-
+  
 }
 
 function setup() {
@@ -37,7 +37,7 @@ function setup() {
 
 
   //spawn the cars
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < 4; i++) {
     cars.push(new Car());
 
   }
@@ -62,7 +62,7 @@ function draw() {
      textFont(myFont);
      textSize(50);
       text("GO LONG!, \n Click to Play", 200, 250);
-      song.play();
+
 
 
       break;
@@ -93,6 +93,7 @@ function draw() {
       textSize(100);
       text("TOUCHDOWN !", 300, 200);
         song.play();
+
       break;
 
 
@@ -105,16 +106,19 @@ function mouseReleased() {
   switch (myState) {
     case 0:
       myState = 1;
+      song.pause();
       break;
 
     case 2:
       resetTheGame();
       myState = 0;
+      song.pause();
       break;
 
     case 3:
       resetTheGame();
       myState = 0;
+      song.pause();
       break;
 
   }
@@ -168,8 +172,8 @@ function Car() {
 }
 
 function keyPressed() {
-  if (keyCode === LEFT_ARROW) yoda = yodaLeft;
-  if (keyCode === RIGHT_ARROW) yoda = yodaRight;
+  if (keyCode === LEFT_ARROW) helmet = helmetLeft;
+  if (keyCode === RIGHT_ARROW) helmet = helmetRight;
 }
 
 function checkForKeys() {
@@ -192,7 +196,7 @@ function game() {
     if (cars[i].pos.dist(frogPos) < 50) {
       cars.splice(i, 1);
 
-      song.play() ;
+    ;
 
     }
   }
