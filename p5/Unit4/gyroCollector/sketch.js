@@ -108,7 +108,7 @@ function draw() {
   // text("z = " + z, 25, 190);
 
 
-}
+
 
 function deviceShaken() {
   // re-spawn cars
