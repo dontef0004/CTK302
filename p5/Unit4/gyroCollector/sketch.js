@@ -5,7 +5,9 @@ var y = 0;
 var z = 0;
 var xPosition = 0;
 var yPosition = 0;
-
+var bird;
+var birds = [];
+var helmet
 // var bunnyImage;
 var cars = [];
 var frogPos;
@@ -15,6 +17,12 @@ function setup() {
 
   createCanvas(windowWidth, windowHeight);
 
+
+  birds[0] = loadImage("assets/football.png");
+  birds[1] = loadImage("assets/football.png");
+  birds[2] = loadImage("assets/football.png");
+  bird = loadImage("assets/football.png");
+  helmet = loadImage("assets/helmetLeft.png");
   // initialize accelerometer variables
   alpha = 0;
   beta = 0;
@@ -54,8 +62,7 @@ function draw() {
 
   // draw the FROG
   // image(bunnyImage, 0, 0, 500, 500);
-  fill('green');
-  ellipse(0, 0, 80, 80);
+  image(helmet, frogPos.x, frogPos.y, 100, 100);
   pop();
 
 
@@ -76,7 +83,7 @@ function draw() {
   fill('white');
   textSize(40);
   textAlign(CENTER);
-  text("your words or image here!", width / 2, 600, windowWidth - 200, windowHeight - 200);
+  text("Catch the Balls!", width / 2, 600, windowWidth - 200, windowHeight - 200);
 
 
   // Debugging information -- take this out when you're ready for production!
@@ -138,18 +145,21 @@ function Car() {
   this.r = random(255);
   this.g = random(255);
   this.b = random(255);
-  this.a = random(255);  // alpha opacity value for fill!
+  this.birdNum = floor(random(birds.length-1)) ;
+  this.timer = 0;
+  this.maxTimer = random(10, 60);
 
 
-  // methods
   this.display = function() {
+    fill(this.r, this.g, this.b);
 
-    // maybe use an image here instead!
-    fill(this.r, this.g, this.b, this.a);
-    ellipse(this.pos.x - 50, this.pos.y, 50, 50);
-    ellipse(this.pos.x + 50, this.pos.y, 50, 50);
-    rect(this.pos.x + 17, this.pos.y - 30, 80, 60) ;
+    image(birds[this.birdNum], this.pos.x, this.pos.y, 100, 100);
 
+    this.timer = this.timer + 1;
+    if (this.timer > this.maxTimer) {
+      this.birdNum = this.birdNum + 1;
+      if (this.birdNum > birds.length - 1) this.birdNum = 0;
+      this.timer = 0 ;
   }
 
   this.drive = function() {
@@ -161,5 +171,5 @@ function Car() {
     if (this.pos.y < 0) this.pos.y = height;
 
   }
-
+  image(helmet, frogPos.x, frogPos.y, 100, 100);
 }
