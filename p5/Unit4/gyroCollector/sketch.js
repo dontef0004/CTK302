@@ -21,7 +21,7 @@ function setup() {
   birds[0] = loadImage("assets/football.png");
   birds[1] = loadImage("assets/football.png");
   birds[2] = loadImage("assets/football.png");
-  bird = loadImage("assets/football.png");
+  birds = loadImage("assets/football.png");
   helmet = loadImage("assets/helmetLeft.png");
   // initialize accelerometer variables
   alpha = 0;
@@ -172,5 +172,5 @@ function Car() {
 
   }
 }
-  image(helmet, frogPos.x, frogPos.y, 100, 100);
+
 }
