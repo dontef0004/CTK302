@@ -5,7 +5,24 @@ var y = 0;
 var z = 0;
 var xPosition = 0;
 var yPosition = 0;
+var cars = [];
+var frogPos;
+var myState = 0;
+var timer = 0;
+var helmet, helmetRight, helmetLeft;
+var bird;
+var birds = [];
+var gok ;
+var myFont ;
+var sad ;
+var win ;
+let song ;
 
+let alpha = 0, beta = 0 , gamma = 0; // gyroscope variables
+let x = 0.0, y = 0.0, z = 0.0 ; // accelerometer variables
+let bunnyImage;
+let xPosition = 0;
+let yPosition = 0;
 // var bunnyImage;
 var cars = [];
 var frogPos;
@@ -30,6 +47,20 @@ function setup() {
   frogPos = createVector(width / 2, height - 80);
 
   // load any images you need
+  birds[0] = loadImage("assets/football.png");
+  birds[1] = loadImage("assets/football.png");
+  birds[2] = loadImage("assets/football.png");
+  helmetRight = loadImage("assets/helmetRight.png");
+  helmetLeft = loadImage("assets/helmetLeft.png");
+  helmet = helmetRight;
+
+  bird = loadImage("assets/football.png");
+
+    back = loadImage('assets/gridiron.jpg');
+    lose = loadImage('assets/nogood.jpg');
+    win = loadImage('assets/touchdown.png');
+    myFont = loadFont('assets/Zone Brown.ttf');
+
   //bunnyImage = loadImage("assets/bunny.jpg");
   imageMode(CENTER);
   rectMode(CENTER);
@@ -54,8 +85,26 @@ function draw() {
 
   // draw the FROG
   // image(bunnyImage, 0, 0, 500, 500);
-  fill('green');
-  ellipse(0, 0, 80, 80);
+  this.pos = createVector(100, 100);
+  this.vel = createVector(random(-5, 5), random(-5, 5));
+  this.r = random(255);
+  this.g = random(255);
+  this.b = random(255);
+  this.birdNum = floor(random(birds.length-1)) ;
+  this.timer = 0;
+  this.maxTimer = random(10, 60);
+
+
+  this.display = function() {
+    fill(this.r, this.g, this.b);
+
+    image(birds[this.birdNum], this.pos.x, this.pos.y, 100, 100);
+
+    this.timer = this.timer + 1;
+    if (this.timer > this.maxTimer) {
+      this.birdNum = this.birdNum + 1;
+      if (this.birdNum > birds.length - 1) this.birdNum = 0;
+      this.timer = 0 ;
   pop();
 
 
@@ -76,7 +125,7 @@ function draw() {
   fill('white');
   textSize(40);
   textAlign(CENTER);
-  text("your words or image here!", width / 2, 600, windowWidth - 200, windowHeight - 200);
+  text("Catch the Ball!", width / 2, 600, windowWidth - 200, windowHeight - 200);
 
 
   // Debugging information -- take this out when you're ready for production!
@@ -145,10 +194,11 @@ function Car() {
   this.display = function() {
 
     // maybe use an image here instead!
-    fill(this.r, this.g, this.b, this.a);
-    ellipse(this.pos.x - 40, this.pos.y, 50, 50);
-    ellipse(this.pos.x + 50, this.pos.y, 50, 50);
-    rect(this.pos.x + 17, this.pos.y - 30, 80, 60) ;
+    image(birds[this.birdNum], this.pos.x, this.pos.y, 100, 100);
+    // fill(this.r, this.g, this.b, this.a);
+    // ellipse(this.pos.x - 40, this.pos.y, 50, 50);
+    // ellipse(this.pos.x + 50, this.pos.y, 50, 50);
+    // rect(this.pos.x + 17, this.pos.y - 30, 80, 60) ;
 
   }
 
