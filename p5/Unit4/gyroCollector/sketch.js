@@ -54,7 +54,7 @@ function setup() {
   helmetLeft = loadImage("assets/helmetLeft.png");
   helmet = helmetRight;
 
-  bird = loadImage("assets/football.png");
+  birds = loadImage("assets/football.png");
 
     back = loadImage('assets/gridiron.jpg');
     lose = loadImage('assets/nogood.jpg');
