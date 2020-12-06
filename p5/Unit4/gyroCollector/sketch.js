@@ -5,13 +5,8 @@ var y = 0;
 var z = 0;
 var xPosition = 0;
 var yPosition = 0;
-
-
-
 var gok ;
 var myFont ;
-
-
 
 // var bunnyImage;
 var cars = [];
@@ -43,14 +38,9 @@ function setup() {
   helmetRight = loadImage("assets/helmetRight.png");
   helmetLeft = loadImage("assets/helmetLeft.png");
   helmet = helmetRight;
-
-  cars = loadImage("assets/football.png");
-
-    back = loadImage('assets/gridiron.jpg');
-    lose = loadImage('assets/nogood.jpg');
-    win = loadImage('assets/touchdown.png');
-    myFont = loadFont('assets/Zone Brown.ttf');
-
+  cars[] = loadImage("assets/football.png");
+  myFont = loadFont('assets/Zone Brown.ttf');
+  back = loadImage('assets/gridiron.jpg');
   //bunnyImage = loadImage("assets/bunny.jpg");
   imageMode(CENTER);
   rectMode(CENTER);
@@ -59,7 +49,7 @@ function setup() {
 
 function draw() {
 
-  background('#c6f5ff'); // light blue
+  image(back, 400, 400, 800, 800);; // light blue
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
@@ -74,28 +64,8 @@ function draw() {
   //  rotate(radians(alpha)); // using alpha in here so it doesn't feel bad
 
   // draw the FROG
-  // image(bunnyImage, 0, 0, 500, 500);
-  this.pos = createVector(100, 100);
-  this.vel = createVector(random(-5, 5), random(-5, 5));
-  this.r = random(255);
-  this.g = random(255);
-  this.b = random(255);
-  this.birdNum = floor(random(birds.length-1)) ;
-  this.timer = 0;
-  this.maxTimer = random(10, 60);
+  image(helmetLeft, 0, 0, 500, 500);
 
-
-  this.display = function() {
-    fill(this.r, this.g, this.b);
-
-    image(cars[this.carsNum], this.pos.x, this.pos.y, 100, 100);
-
-    this.timer = this.timer + 1;
-    if (this.timer > this.maxTimer) {
-      this.carsNum = this.carsNum + 1;
-      if (this.carsNum > birds.length - 1) this.carsNum = 0;
-      this.timer = 0 ;
-    }
   pop();
 }
 
@@ -115,6 +85,7 @@ function draw() {
   // MORE DECORATIONS - write that pretty ATK type on top.
   fill('white');
   textSize(40);
+  textFont(myFont);
   textAlign(CENTER);
   text("Catch the Ball!", width / 2, 600, windowWidth - 200, windowHeight - 200);
 
@@ -178,7 +149,7 @@ function Car() {
   this.r = random(255);
   this.g = random(255);
   this.b = random(255);
-  this.a = random(255);  // alpha opacity value for fill!
+  //this.a = random(255);  // alpha opacity value for fill!
 
 
   // methods----add stuff from mp3
