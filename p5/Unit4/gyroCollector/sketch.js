@@ -11,7 +11,7 @@ var helmet
 // var bunnyImage;
 var cars = [];
 var frogPos;
-
+var back;
 
 function setup() {
 
@@ -23,6 +23,7 @@ function setup() {
   birds[2] = loadImage("assets/football.png");
   bird = loadImage("assets/football.png");
   helmet = loadImage("assets/helmetLeft.png");
+  back = loadImage('assets/gridiron.jpg');
   // initialize accelerometer variables
   alpha = 0;
   beta = 0;
@@ -47,7 +48,7 @@ function setup() {
 function draw() {
 
   background('#c6f5ff'); // light blue
-
+  image(back, width/2, 400, windowWidth, 800);
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
   // map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
@@ -88,31 +89,31 @@ function draw() {
 
   // Debugging information -- take this out when you're ready for production!
   // Just a bunch of text commands to display data coming in from addEventListeners
-  textAlign(LEFT);
-  textSize(20);
-  fill('black');
-  text("orientation data:", 25, 25);
-  textSize(15);
-  text("alpha: " + alpha, 25, 50);
-  text("beta: " + beta, 25, 70);
-  text("gamma: " + gamma, 25, 90);
-  textSize(20);
-  text("acceleration data:", 25, 125);
-  textSize(15);
-  text("x = " + x, 25, 150); // .toFixed means just show (x) decimal places
-  text("y = " + y, 25, 170);
-  text("z = " + z, 25, 190);
+  // textAlign(LEFT);
+  // textSize(20);
+  // fill('black');
+  // text("orientation data:", 25, 25);
+  // textSize(15);
+  // text("alpha: " + alpha, 25, 50);
+  // text("beta: " + beta, 25, 70);
+  // text("gamma: " + gamma, 25, 90);
+  // textSize(20);
+  // text("acceleration data:", 25, 125);
+  // textSize(15);
+  // text("x = " + x, 25, 150); // .toFixed means just show (x) decimal places
+  // text("y = " + y, 25, 170);
+  // text("z = " + z, 25, 190);
 
 
 }
 
-function deviceShaken() {
-  // re-spawn cars
-  cars = []; // clear the array first
-  for (var i = 0; i < 40; i++) {
-    cars.push(new Car());
-  }
-}
+// function deviceShaken() {
+//   // re-spawn cars
+//   cars = []; // clear the array first
+//   for (var i = 0; i < 40; i++) {
+//     cars.push(new Car());
+//   }
+// }
 
 
 // HERE'S THE STUFF YOU NEED FOR READING IN DATA!!!
@@ -172,5 +173,6 @@ function Car() {
 
   }
 }
+
 
 }
