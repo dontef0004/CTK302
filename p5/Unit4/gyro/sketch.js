@@ -22,7 +22,7 @@ function setup() {
 
 function draw() {
 
-  background('backgroundImage')
+  image(backgroundImage, 1000, 1000, 1000, 1000);
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
