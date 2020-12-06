@@ -14,6 +14,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   bunnyImage = loadImage("assets/cockpit.jpg");
+  backgroundImage = loadImage("assets/sky.jpg")
   imageMode(CENTER);
   rectMode(CENTER);
 
@@ -21,7 +22,7 @@ function setup() {
 
 function draw() {
 
-  background('white'); // light blue
+  background('backgroundImage'); // light blue
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
