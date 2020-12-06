@@ -171,5 +171,6 @@ function Car() {
     if (this.pos.y < 0) this.pos.y = height;
 
   }
+}
   image(helmet, frogPos.x, frogPos.y, 100, 100);
 }
