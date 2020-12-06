@@ -18,11 +18,7 @@ var sad ;
 var win ;
 let song ;
 
-let alpha = 0, beta = 0 , gamma = 0; // gyroscope variables
-let x = 0.0, y = 0.0, z = 0.0 ; // accelerometer variables
-let bunnyImage;
-let xPosition = 0;
-let yPosition = 0;
+
 // var bunnyImage;
 var cars = [];
 var frogPos;
