@@ -38,7 +38,7 @@ function setup() {
   helmetRight = loadImage("assets/helmetRight.png");
   helmetLeft = loadImage("assets/helmetLeft.png");
   helmet = helmetRight;
-  cars[] = loadImage("assets/football.png");
+  cars = loadImage("assets/football.png");
   myFont = loadFont('assets/Zone Brown.ttf');
   back = loadImage('assets/gridiron.jpg');
   //bunnyImage = loadImage("assets/bunny.jpg");
