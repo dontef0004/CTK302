@@ -32,12 +32,9 @@ function setup() {
   frogPos = createVector(width / 2, height - 80);
 
   // load any images you need
-  cars[0] = loadImage("assets/football.png");
-  cars[1] = loadImage("assets/football.png");
-  cars[2] = loadImage("assets/football.png");
+
   helmetRight = loadImage("assets/helmetRight.png");
   helmetLeft = loadImage("assets/helmetLeft.png");
-  helmet = helmetRight;
   cars = loadImage("assets/football.png");
   myFont = loadFont('assets/Zone Brown.ttf');
   back = loadImage('assets/gridiron.jpg');
@@ -49,7 +46,7 @@ function setup() {
 
 function draw() {
 
-  image(back, 400, 400, 800, 800);; // light blue
+ // light blue
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
@@ -57,7 +54,7 @@ function draw() {
   xPosition = map(gamma, -18, 18, 0, width);
   yPosition = map(beta, 25, 45, 0, height);
 
-
+  image(back, 400, 400, windowWidth, windowHeight);
   // move the frog around the screen
   push(); // before you use translate, rotate, or scale commands, push and then pop after
   translate(xPosition, yPosition); // move everything over by x, y
@@ -85,27 +82,26 @@ function draw() {
   // MORE DECORATIONS - write that pretty ATK type on top.
   fill('white');
   textSize(40);
-  textFont(myFont);
   textAlign(CENTER);
   text("Catch the Ball!", width / 2, 600, windowWidth - 200, windowHeight - 200);
 
 
   // Debugging information -- take this out when you're ready for production!
   // Just a bunch of text commands to display data coming in from addEventListeners
-  // textAlign(LEFT);
-  // textSize(20);
-  // fill('black');
-  // text("orientation data:", 25, 25);
-  // textSize(15);
-  // text("alpha: " + alpha, 25, 50);
-  // text("beta: " + beta, 25, 70);
-  // text("gamma: " + gamma, 25, 90);
-  // textSize(20);
-  // text("acceleration data:", 25, 125);
-  // textSize(15);
-  // text("x = " + x, 25, 150); // .toFixed means just show (x) decimal places
-  // text("y = " + y, 25, 170);
-  // text("z = " + z, 25, 190);
+  textAlign(LEFT);
+  textSize(20);
+  fill('black');
+  text("orientation data:", 25, 25);
+  textSize(15);
+  text("alpha: " + alpha, 25, 50);
+  text("beta: " + beta, 25, 70);
+  text("gamma: " + gamma, 25, 90);
+  textSize(20);
+  text("acceleration data:", 25, 125);
+  textSize(15);
+  text("x = " + x, 25, 150); // .toFixed means just show (x) decimal places
+  text("y = " + y, 25, 170);
+  text("z = " + z, 25, 190);
 
 
 
@@ -156,8 +152,8 @@ function Car() {
   this.display = function() {
 
     // maybe use an image here instead!
-    image(cars[this.carsNum], this.pos.x, this.pos.y, 100, 100);
-    // fill(this.r, this.g, this.b, this.a);
+    fill(this.r, this.g, this.b);
+    image(cars, this.pos.x, this.pos.y, 50, 50);
     // ellipse(this.pos.x - 40, this.pos.y, 50, 50);
     // ellipse(this.pos.x + 50, this.pos.y, 50, 50);
     // rect(this.pos.x + 17, this.pos.y - 30, 80, 60) ;
