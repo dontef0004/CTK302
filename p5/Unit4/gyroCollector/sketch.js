@@ -5,8 +5,6 @@ var y = 0;
 var z = 0;
 var xPosition = 0;
 var yPosition = 0;
-var gok ;
-var myFont ;
 
 // var bunnyImage;
 var cars = [];
@@ -32,12 +30,6 @@ function setup() {
   frogPos = createVector(width / 2, height - 80);
 
   // load any images you need
-
-  helmetRight = loadImage("assets/helmetRight.png");
-  helmetLeft = loadImage("assets/helmetLeft.png");
-  cars = loadImage("assets/football.png");
-  myFont = loadFont('assets/Zone Brown.ttf');
-  back = loadImage('assets/gridiron.jpg');
   //bunnyImage = loadImage("assets/bunny.jpg");
   imageMode(CENTER);
   rectMode(CENTER);
@@ -46,7 +38,7 @@ function setup() {
 
 function draw() {
 
- // light blue
+  background('#c6f5ff'); // light blue
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
@@ -54,17 +46,18 @@ function draw() {
   xPosition = map(gamma, -18, 18, 0, width);
   yPosition = map(beta, 25, 45, 0, height);
 
-  image(back, 400, 400, windowWidth, windowHeight);
+
   // move the frog around the screen
   push(); // before you use translate, rotate, or scale commands, push and then pop after
   translate(xPosition, yPosition); // move everything over by x, y
   //  rotate(radians(alpha)); // using alpha in here so it doesn't feel bad
 
   // draw the FROG
-  image(helmetLeft, 0, 0, 500, 500);
-
+  // image(bunnyImage, 0, 0, 500, 500);
+  fill('green');
+  ellipse(0, 0, 80, 80);
   pop();
-}
+
 
   // update the frog's position using the accelerometer data
   frogPos.x = xPosition;
@@ -83,7 +76,7 @@ function draw() {
   fill('white');
   textSize(40);
   textAlign(CENTER);
-  text("Catch the Ball!", width / 2, 600, windowWidth - 200, windowHeight - 200);
+  text("your words or image here!", width / 2, 600, windowWidth - 200, windowHeight - 200);
 
 
   // Debugging information -- take this out when you're ready for production!
@@ -104,7 +97,7 @@ function draw() {
   text("z = " + z, 25, 190);
 
 
-
+}
 
 function deviceShaken() {
   // re-spawn cars
@@ -145,18 +138,17 @@ function Car() {
   this.r = random(255);
   this.g = random(255);
   this.b = random(255);
-  //this.a = random(255);  // alpha opacity value for fill!
+  this.a = random(255);  // alpha opacity value for fill!
 
 
-  // methods----add stuff from mp3
+  // methods
   this.display = function() {
 
     // maybe use an image here instead!
-    fill(this.r, this.g, this.b);
-    image(cars, this.pos.x, this.pos.y, 50, 50);
-    // ellipse(this.pos.x - 40, this.pos.y, 50, 50);
-    // ellipse(this.pos.x + 50, this.pos.y, 50, 50);
-    // rect(this.pos.x + 17, this.pos.y - 30, 80, 60) ;
+    fill(this.r, this.g, this.b, this.a);
+    ellipse(this.pos.x - 50, this.pos.y, 50, 50);
+    ellipse(this.pos.x + 50, this.pos.y, 50, 50);
+    rect(this.pos.x + 17, this.pos.y - 30, 80, 60) ;
 
   }
 
