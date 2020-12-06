@@ -97,7 +97,7 @@ function draw() {
       this.timer = 0 ;
     }
   pop();
-
+}
 
   // update the frog's position using the accelerometer data
   frogPos.x = xPosition;
