@@ -148,7 +148,7 @@ function Car() {
     fill(this.r, this.g, this.b, this.a);
     ellipse(this.pos.x - 50, this.pos.y, 50, 50);
     ellipse(this.pos.x + 50, this.pos.y, 50, 50);
-    rect(this.pos.x + 17, this.pos.y - 30, 80, 60) ;
+    rect(this.pos.x + 30, this.pos.y - 30, 200, 60) ;
 
   }
 
