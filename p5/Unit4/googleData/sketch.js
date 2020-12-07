@@ -69,13 +69,18 @@ class Bubble {
 
 
   display() {
-    if (this.vehicle == "Car") {
+    if (this.vehicle == "Cars")
+    {
       image(car, this.pos.x, this.pos.y, 50, 50);
-    } else if (this.vehicle == "Motorcycle"){
+    }
+    else if (this.vehicle == "Motorcycles")
+    {
       image(motorcycle, this.pos.x, this.pos.y, 50, 50);
-    }else{
-      image(truck, this.pos.x, this.pos.y, 50, 50)
-  }
+    }
+    else if (this.vehicle == "Trucks")
+    {
+      image(truck, this.pos.x, this.pos.y, 50, 50);
+    }
     // }
     ellipse(this.pos.x, this.pos.y, 50, 50);
     text(this.name, this.pos.x, this.pos.y);
